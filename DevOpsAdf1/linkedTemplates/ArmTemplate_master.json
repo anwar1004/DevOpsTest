@@ -7,6 +7,22 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "DevOpsAdf1"
 		},
+		"ls_adl_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adl'"
+		},
+		"ls_sql_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sql'"
+		},
+		"ls_adl_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cvcovidrepdl.dfs.core.windows.net/"
+		},
+		"tr_StorageEventTrigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/15a7dfbd-31ba-47d7-b389-934e3ccbf5d0/resourceGroups/rg-adf-covid/providers/Microsoft.Storage/storageAccounts/cvcovidrepdl"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -33,6 +49,18 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"ls_adl_accountKey": {
+						"value": "[parameters('ls_adl_accountKey')]"
+					},
+					"ls_sql_connectionString": {
+						"value": "[parameters('ls_sql_connectionString')]"
+					},
+					"ls_adl_properties_typeProperties_url": {
+						"value": "[parameters('ls_adl_properties_typeProperties_url')]"
+					},
+					"tr_StorageEventTrigger_properties_typeProperties_scope": {
+						"value": "[parameters('tr_StorageEventTrigger_properties_typeProperties_scope')]"
 					}
 				}
 			},

@@ -4,6 +4,18 @@
 	"parameters": {
 		"factoryName": {
 			"value": "DevOpsAdf1"
+		},
+		"ls_adl_accountKey": {
+			"value": ""
+		},
+		"ls_sql_connectionString": {
+			"value": ""
+		},
+		"ls_adl_properties_typeProperties_url": {
+			"value": "https://cvcovidrepdl.dfs.core.windows.net/"
+		},
+		"tr_StorageEventTrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/15a7dfbd-31ba-47d7-b389-934e3ccbf5d0/resourceGroups/rg-adf-covid/providers/Microsoft.Storage/storageAccounts/cvcovidrepdl"
 		}
 	}
 }
