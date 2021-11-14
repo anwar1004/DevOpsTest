@@ -9,7 +9,8 @@
 		"type": "AzureSqlTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "dbo.product_event_tr"
+			"schema": "dbo",
+			"table": "product_event_tr"
 		}
 	}
 }
