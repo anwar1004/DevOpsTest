@@ -1,0 +1,25 @@
+{
+	"name": "tr_StorageEventTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pl_copy_prd2sql",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/test/blobs/data",
+			"blobPathEndsWith": ".csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/15a7dfbd-31ba-47d7-b389-934e3ccbf5d0/resourceGroups/rg-adf-covid/providers/Microsoft.Storage/storageAccounts/cvcovidrepdl",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
