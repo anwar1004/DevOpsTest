@@ -12,7 +12,7 @@
 				"type": "HttpServerLocation",
 				"relativeUrl": "anwar1004/RepDevOpsAdf/main/test.csv"
 			},
-			"columnDelimiter": ",",
+			"columnDelimiter": ";",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
