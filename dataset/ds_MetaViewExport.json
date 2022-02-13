@@ -17,6 +17,39 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "exportName",
+				"type": "String"
+			},
+			{
+				"name": "sqlStatement",
+				"type": "String"
+			},
+			{
+				"name": "excelFile",
+				"type": "String"
+			},
+			{
+				"name": "excelPassword",
+				"type": "String"
+			},
+			{
+				"name": "excelWorkSheetName",
+				"type": "String"
+			},
+			{
+				"name": "targetPath",
+				"type": "String"
+			},
+			{
+				"name": "excelTableStyle",
+				"type": "String"
+			},
+			{
+				"name": "isActive",
+				"type": "String"
+			}
+		]
 	}
 }
