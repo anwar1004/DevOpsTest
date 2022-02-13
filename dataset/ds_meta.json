@@ -7,7 +7,45 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": [],
+		"schema": [
+			{
+				"name": "id",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "exportName",
+				"type": "varchar"
+			},
+			{
+				"name": "sqlStatement",
+				"type": "varchar"
+			},
+			{
+				"name": "excelFile",
+				"type": "varchar"
+			},
+			{
+				"name": "excelPassword",
+				"type": "varchar"
+			},
+			{
+				"name": "excelWorkSheetName",
+				"type": "varchar"
+			},
+			{
+				"name": "targetPath",
+				"type": "varchar"
+			},
+			{
+				"name": "excelTableStyle",
+				"type": "varchar"
+			},
+			{
+				"name": "isActive",
+				"type": "bit"
+			}
+		],
 		"typeProperties": {
 			"schema": "staging",
 			"table": "test_ai_meta"
