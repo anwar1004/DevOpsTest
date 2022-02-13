@@ -1,0 +1,32 @@
+{
+	"name": "df_LoadExpViewMeta",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_MetaViewExport",
+						"type": "DatasetReference"
+					},
+					"name": "GetExpViewMeta"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_meta_sdb",
+						"type": "DatasetReference"
+					},
+					"name": "InsertMetaTable"
+				}
+			],
+			"transformations": [
+				{
+					"name": "TypedColumns"
+				}
+			],
+			"script": "source(output(\n\t\texportName as string,\n\t\tsqlStatement as string,\n\t\texcelFile as string,\n\t\texcelPassword as string,\n\t\texcelWorkSheetName as string,\n\t\ttargetPath as string,\n\t\texcelTableStyle as string,\n\t\tisActive as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> GetExpViewMeta\nGetExpViewMeta derive(isActive = toBinary(isActive)) ~> TypedColumns\nTypedColumns sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\tid as long,\n\t\texportName as string,\n\t\tsqlStatement as string,\n\t\texcelFile as string,\n\t\texcelPassword as string,\n\t\texcelWorkSheetName as string,\n\t\ttargetPath as string,\n\t\texcelTableStyle as string,\n\t\tisActive as boolean\n\t),\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\ttruncate:true,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError',\n\tmapColumn(\n\t\texportName,\n\t\tsqlStatement,\n\t\texcelFile,\n\t\texcelPassword,\n\t\texcelWorkSheetName,\n\t\ttargetPath,\n\t\texcelTableStyle,\n\t\tisActive\n\t)) ~> InsertMetaTable"
+		}
+	}
+}
