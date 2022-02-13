@@ -1,5 +1,5 @@
 {
-	"name": "ds_meta",
+	"name": "ds_meta_sdb",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_AzureSqlDatabase",
