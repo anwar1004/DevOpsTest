@@ -1,5 +1,5 @@
 {
-	"name": "pl_Github",
+	"name": "pl_LoadMetaFromGit",
 	"properties": {
 		"activities": [
 			{
@@ -30,7 +30,7 @@
 						"preCopyScript": "truncate table staging.test_ai_meta",
 						"sqlWriterStoredProcedureName": "[staging].[sp_loadExpViewMeta]",
 						"sqlWriterTableType": "staging.TypeExpView",
-						"storedProcedureTableTypeParameterName": "meta",
+						"storedProcedureTableTypeParameterName": "P_meta",
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
