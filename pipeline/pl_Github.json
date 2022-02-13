@@ -1,0 +1,160 @@
+{
+	"name": "pl_Github",
+	"properties": {
+		"activities": [
+			{
+				"name": "LoadExpViewMeta",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "HttpReadSettings",
+							"requestMethod": "GET"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "truncate table staging.test_ai_meta",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"tableOption": "autoCreate",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "exportName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "exportName",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sqlStatement",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "sqlStatement",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "excelFile",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "excelFile",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "excelPassword",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "excelPassword",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "excelWorkSheetName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "excelWorkSheetName",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "targetPath",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "targetPath",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "excelTableStyle",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "excelTableStyle",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "isActive",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "isActive",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_MetaViewExport",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_meta",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}

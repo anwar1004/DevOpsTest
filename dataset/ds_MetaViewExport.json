@@ -1,0 +1,22 @@
+{
+	"name": "ds_MetaViewExport",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_github_http",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "anwar1004/RepDevOpsAdf/main/test.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
