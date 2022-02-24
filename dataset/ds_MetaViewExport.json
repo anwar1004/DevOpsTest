@@ -5,12 +5,21 @@
 			"referenceName": "ls_github_http",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"p_branch": {
+				"type": "string",
+				"defaultValue": "main"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": "anwar1004/RepDevOpsAdf/main/test.csv"
+				"relativeUrl": {
+					"value": "concat('anwar1004/RepDevOpsAdf/', dataset().p_branch , '/test.csv')",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ";",
 			"escapeChar": "\\",
