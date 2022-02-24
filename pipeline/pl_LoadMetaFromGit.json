@@ -46,7 +46,13 @@
 				"inputs": [
 					{
 						"referenceName": "ds_MetaViewExport",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"p_branch": {
+								"value": "@pipeline().globalParameters.branch",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
