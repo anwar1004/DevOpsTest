@@ -17,7 +17,7 @@
 			"location": {
 				"type": "HttpServerLocation",
 				"relativeUrl": {
-					"value": "concat('anwar1004/RepDevOpsAdf/', dataset().p_branch , '/test.csv')",
+					"value": "@concat('anwar1004/RepDevOpsAdf/', dataset().p_branch, '/test.csv')",
 					"type": "Expression"
 				}
 			},
