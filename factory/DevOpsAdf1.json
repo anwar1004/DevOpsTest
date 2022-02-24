@@ -1,0 +1,12 @@
+{
+	"name": "DevOpsAdf1",
+	"properties": {
+		"globalParameters": {
+			"branch": {
+				"type": "string",
+				"value": "main"
+			}
+		}
+	},
+	"location": "westeurope"
+}
